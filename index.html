@@ -1223,23 +1223,23 @@ font-weight:200;
       });
     })();
 
-    // Card 04: assign a random local texture to each panel thumb / swatch tile.
+    // Card 04: assign a material texture to each panel thumb / swatch tile.
  (function () {
   var textures = [
-    'assets/section4_textures/text (1).png',
-    'assets/section4_textures/text (2).png',
-    'assets/section4_textures/text (3).png',
-    'assets/section4_textures/text (4).png',
-    'assets/section4_textures/text (5).png',
-    'assets/section4_textures/text (6).png',
-    'assets/section4_textures/text (7).png',
-    'assets/section4_textures/text (8).png',
-    'assets/section4_textures/text (9).png'
+    'https://images.pexels.com/photos/172276/pexels-photo-172276.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/172276/pexels-photo-172276.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/4992459/pexels-photo-4992459.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop',
+    'https://images.pexels.com/photos/186230/pexels-photo-186230.jpeg?auto=compress&cs=tinysrgb&w=160&h=160&fit=crop'
   ];
 
   document.querySelectorAll('#directCardFourArtboard .direct4-tex')
     .forEach(function (img, index) {
-      img.src = encodeURI(textures[index]);
+      img.src = textures[index % textures.length];
     });
 })();
   </script>
