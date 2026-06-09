@@ -241,6 +241,21 @@ font-weight:200;
     object-position:50% 42%;
     z-index:0;
   }
+  .direct2-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:50% 42%;
+    z-index:0;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 4.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  body.is-night .direct2-video{
+    opacity:1;
+  }
   .direct-card__grade{
     position:absolute;
     inset:0;
@@ -911,6 +926,7 @@ font-weight:200;
         <div class="direct-card" id="directCardTwo">
           <div class="direct-card__artboard" id="directCardTwoArtboard">
             <img class="direct-card__photo" src="https://res.cloudinary.com/dgupuutfn/image/upload/v1780913983/room2_pihyox.png" data-night-src="https://res.cloudinary.com/dgupuutfn/image/upload/v1780913982/room2_night_qc4qeq.png" alt="Living room interior" />
+            <video class="direct2-video" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260609_072414_1e4448ec-537f-4f94-b56b-19e00c1550e8.mp4" muted loop playsinline preload="auto"></video>
             <div class="direct2-grade"></div>
 
             <div class="direct-footer">
@@ -1098,6 +1114,11 @@ font-weight:200;
       function setNightMode(isNight){
         body.classList.toggle('is-night', isNight);
         if(toggle) toggle.setAttribute('aria-pressed', String(isNight));
+        var card2Video = document.querySelector('.direct2-video');
+        if(card2Video){
+          if(isNight){ card2Video.play().catch(function(){}); }
+          else { card2Video.pause(); }
+        }
         swapPhotos(isNight);
         fitDirectCard();
         fitLanding();
